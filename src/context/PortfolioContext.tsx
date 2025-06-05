@@ -141,12 +141,12 @@ const defaultPortfolioData: PortfolioData = {
   experience: {
     jobs: [
       {
-        title: "Senior Software Engineer",
-        company: "NTT Data",
-        location: "Hyderabad, India",
-        dates: "2018 - 2021",
-        description: "Designed and developed scalable web and console applications using ASP.NET Core, MVC, Web API, C#, SQL, and Entity Framework, focusing on performance, clean architecture, and business-driven solutions.Built responsive UIs with HTML, CSS, JavaScript, AngularJS, and DevExpress, while ensuring efficient database management, API integration, and end-to-end troubleshooting.",
-        technologies: ["Asp.net MVC Core", "RestFul API", "SQl", "Javascript"]
+        title: "Software Engineer",
+        company: "HCL Tech America",
+        location: "Virginia, USA(Remote)",
+        dates: "2025 - Current",
+        description: "As a developer, I work on enabling Microsoft Teams functionalities by developing solutions using Python, Flask, and CSS. I’m responsible for building admin access controls for users, contributing to significant project improvements that led to a 15% increase in sales.",
+        technologies: ["Python", "BackendAPI", "SOAP"]
       },
       {
         title: "Software Engineer Consultant",
@@ -157,13 +157,15 @@ const defaultPortfolioData: PortfolioData = {
         technologies: ["React", "Azure", "RAG,", "LLM", "Vector database"]
       },
       {
-        title: "Software Engineer",
-        company: "HCL Tech America",
-        location: "Virginia, USA(Remote)",
-        dates: "2025 - Current",
-        description: "As a developer, I work on enabling Microsoft Teams functionalities by developing solutions using Python, Flask, and CSS. I’m responsible for building admin access controls for users, contributing to significant project improvements that led to a 15% increase in sales.",
-        technologies: ["Python", "BackendAPI", "SOAP"]
+        title: "Senior Software Engineer",
+        company: "NTT Data",
+        location: "Hyderabad, India",
+        dates: "2018 - 2021",
+        description: "Designed and developed scalable web and console applications using ASP.NET Core, MVC, Web API, C#, SQL, and Entity Framework, focusing on performance, clean architecture, and business-driven solutions.Built responsive UIs with HTML, CSS, JavaScript, AngularJS, and DevExpress, while ensuring efficient database management, API integration, and end-to-end troubleshooting.",
+        technologies: ["Asp.net MVC Core", "RestFul API", "SQl", "Javascript"]
       }
+      
+     
       // Add more jobs as needed
     ]
   }
