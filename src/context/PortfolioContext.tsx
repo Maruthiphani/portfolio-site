@@ -17,6 +17,7 @@ export interface Achievement {
   description: string;
   year: string;
   icon: string;
+ 
 }
 
 export interface Certification {
@@ -90,15 +91,17 @@ const defaultPortfolioData: PortfolioData = {
     items: [
       {
         title: "Achievement 1",
-        description: "Participated in Hackathon conducted by Microsoft.",
+        description: "Participated in Hackathon conducted by Microsoft. Developed an AI-powered WhatsApp automation solution using LLMs and classification systems",
         year: "2025",
         icon: "Digital Certificate"
+       
       },
       {
         title: "Achievement 2",
         description: "Participated in Hackathon organised by Preplexity AI.",
-        year: "2024",
-        icon: "Digital Certificate"
+        year: "2025",
+        icon: "Digital Certificate",
+       
       }
       // Add more achievements as needed
     ]
@@ -129,10 +132,17 @@ const defaultPortfolioData: PortfolioData = {
   education: {
     degrees: [
       {
+        institution: "MLR Institute of Technology",
+        degree: "B-Tech",
+        year: "2014 - 2017",
+        description: "Earned a degree in Electronics and Communication with distinction.",
+        logo: "https://i.imgur.com/2cRcqab.jpeg"
+      },
+      {
         institution: "University of Missouri - Kansas City",
         degree: "Masters",
         year: "2022 - 2023",
-        description: "Earned a Master's degree in Computer Science with a 3.57 GPA.",
+        description: "Earned a Master's degree in Computer Science with a 3.85 GPA.",
         logo: "https://i.imgur.com/AHQ0qyC.jpeg"
       }
       // Add more degrees as needed
