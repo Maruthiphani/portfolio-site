@@ -51,7 +51,7 @@ const About: React.FC = () => {
               I'm constantly learning and exploring new technologies to stay at the forefront of the rapidly evolving tech landscape.`}
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-            Outside of work, I invest in my personal well-being and creativity — I read, write, meditate, and immerse myself in nature to stay balanced and inspired.
+            Outside of work, I invest in my personal well-being and creativity. I read, write, meditate, freestyle dance, and immerse myself in nature to stay balanced and inspired.
             </p>
           </motion.div>
           
