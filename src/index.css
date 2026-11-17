@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-zinc-950 text-zinc-100 font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  ::selection {
+    background-color: rgba(16, 185, 129, 0.35);
+    color: #ecfeff;
+  }
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 8px;
+    border: 2px solid #09090b;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+@layer utilities {
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-emerald-300 via-teal-200 to-cyan-300 bg-clip-text text-transparent;
+  }
+  .text-gradient-violet {
+    @apply bg-gradient-to-r from-violet-300 via-fuchsia-300 to-pink-300 bg-clip-text text-transparent;
+  }
+  .glass {
+    @apply bg-zinc-900/60 backdrop-blur-xl border border-zinc-800/80;
+  }
+  .glass-strong {
+    @apply bg-zinc-900/80 backdrop-blur-2xl border border-zinc-800;
+  }
+  .ring-glow-emerald {
+    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.25), 0 20px 40px -20px rgba(16, 185, 129, 0.25);
+  }
+  .mesh-aurora {
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(16, 185, 129, 0.18), transparent 50%),
+      radial-gradient(ellipse at 80% 0%, rgba(139, 92, 246, 0.18), transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(56, 189, 248, 0.14), transparent 50%);
+  }
+}

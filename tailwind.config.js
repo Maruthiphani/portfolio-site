@@ -85,6 +85,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       spacing: {
         '128': '32rem',
@@ -93,6 +94,9 @@ export default {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
+        'pulse-glow': 'pulseGlow 2.4s ease-in-out infinite',
+        'aurora': 'aurora 16s ease infinite',
+        'float-slow': 'floatSlow 7s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -103,6 +107,25 @@ export default {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(16, 185, 129, 0.7)' },
+          '50%': { boxShadow: '0 0 0 8px rgba(16, 185, 129, 0)' },
+        },
+        aurora: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        floatSlow: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      backgroundImage: {
+        'grid-zinc': "linear-gradient(to right, rgba(63,63,70,0.25) 1px, transparent 1px), linear-gradient(to bottom, rgba(63,63,70,0.25) 1px, transparent 1px)",
+        'radial-fade': 'radial-gradient(ellipse at center, transparent 0%, #09090b 75%)',
+      },
+      backgroundSize: {
+        'grid-md': '48px 48px',
       },
     },
   },
