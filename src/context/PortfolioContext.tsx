@@ -69,7 +69,7 @@ const defaultPortfolioData: PortfolioData = {
     photoUrl: "http://i.imgur.com/DrYFhCD.jpeg"//"https://i.imgur.com/3cZCvTE.jpeg"
   },
   about: {
-    bio: `I'm an AI Engineer with about 8 years in software and roughly 3 years building Agentic RAG, LLM-powered applications, and autonomous AI systems on AWS and Azure. I'm currently building an enterprise Agentic AI support platform that helps L1/L2 engineers triage, diagnose, and resolve production incidents faster. I design production-grade agentic workflows with LangGraph, Azure OpenAI (GPT-4, GPT-4o, Mistral), and AWS Bedrock (Claude Sonnet, Claude Haiku, Mistral), combining tool-calling agents, hybrid retrieval, and dynamic planning to deliver context-aware automation.
+    bio: `I'm an AI Engineer with about 8 years in software and roughly 3+ years building Agentic RAG, LLM-powered applications, and autonomous AI systems on AWS and Azure. I'm currently building an enterprise Agentic AI support platform that helps L1/L2 engineers triage, diagnose, and resolve production incidents faster. I design production-grade agentic workflows with LangGraph, Azure OpenAI (GPT-4, GPT-4o, Mistral), and AWS Bedrock (Claude Sonnet, Claude Haiku, Mistral), combining tool-calling agents, hybrid retrieval, and dynamic planning to deliver context-aware automation.
 
           My approach is grounded in discipline, curiosity, and ownership. I like turning complex business problems into measurable AI outcomes, architecting multi-agent systems, and leading cross-functional delivery end-to-end. I care deeply about grounded, citation-backed answers, evaluation, and guardrails that make AI systems safe to run in production.`,
     skills: [
@@ -131,6 +131,22 @@ const defaultPortfolioData: PortfolioData = {
         issuer: "Microsoft",
         date: "07 2024",
         logo: "https://i.imgur.com/2msoQFQ.jpeg"
+      },
+      {
+        name: "Claude Code 101",
+        issuer: "Anthropic — Claude Academy",
+        date: "11 2026",
+        logo: "/certificates/claude-badge.svg",
+        description: "Claude Code from first principles: the agentic loop, context window, tools, and permissions; prompting across manual, auto-accept, auto, and Plan modes; the Explore → Plan → Code → Commit workflow; context commands (/compact, /clear, /context); CLAUDE.md memory; custom subagents; MCP server integration; and hooks for deterministic control.",
+        credentialUrl: "/certificates/claude-academy-badge-claude-code-101.pdf"
+      },
+      {
+        name: "Model Context Protocol — Advanced Topics",
+        issuer: "Anthropic — Claude Academy",
+        date: "11 2026",
+        logo: "/certificates/claude-badge.svg",
+        description: "Advanced MCP beyond the basics: sampling (servers requesting LLM calls through the client), progress and logging notifications, roots for scoped filesystem access, JSON message types, and the STDIO and StreamableHTTP transports — including stateful vs stateless deployment trade-offs.",
+        credentialUrl: "/certificates/claude-academy-badge-model-context-protocol-advanced-topics.pdf"
       }
       // Add more certifications as needed
     ]

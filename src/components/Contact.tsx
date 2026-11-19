@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 06. contact'}</div>
+          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 07. contact'}</div>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Let's build something</h2>
           <p className="mt-3 text-zinc-400 max-w-2xl">
             Open to AI engineering roles and collaborations on Agentic RAG, multi-agent systems, and LLM

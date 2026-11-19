@@ -16,7 +16,7 @@ const Achievements: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 03. achievements'}</div>
+          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 04. achievements'}</div>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Hackathons & recognition</h2>
         </motion.div>
 

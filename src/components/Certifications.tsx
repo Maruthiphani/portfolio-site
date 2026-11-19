@@ -16,7 +16,7 @@ const Certifications: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 04. certifications'}</div>
+          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 05. certifications'}</div>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Certifications</h2>
         </motion.div>
 
@@ -43,8 +43,22 @@ const Certifications: React.FC = () => {
                     <BadgeCheck className="w-3.5 h-3.5 text-violet-300" />
                     <span className="font-mono text-[10px] uppercase tracking-wider text-violet-300">verified</span>
                   </div>
-                  <h3 className="text-sm font-semibold text-white leading-snug mb-1.5">{certification.name}</h3>
+                  {certification.credentialUrl ? (
+                    <a
+                      href={certification.credentialUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block text-sm font-semibold text-white leading-snug mb-1.5 hover:text-violet-300 transition-colors"
+                    >
+                      {certification.name}
+                    </a>
+                  ) : (
+                    <h3 className="text-sm font-semibold text-white leading-snug mb-1.5">{certification.name}</h3>
+                  )}
                   <p className="text-xs text-zinc-400 leading-relaxed">{certification.issuer}</p>
+                  {certification.description && (
+                    <p className="text-xs text-zinc-500 leading-relaxed mt-2">{certification.description}</p>
+                  )}
                   <div className="flex items-center gap-1.5 mt-2.5 text-xs text-zinc-500 font-mono">
                     <Calendar className="w-3 h-3" />
                     <span>{certification.date}</span>

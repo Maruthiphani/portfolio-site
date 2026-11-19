@@ -6,6 +6,7 @@ import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
 import Degrees from './components/Degrees';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { PortfolioProvider } from './context/PortfolioContext';
@@ -35,6 +36,7 @@ function App() {
           <Hero />
           <About />
           <Experience />
+          <Projects />
           <Achievements />
           <Certifications />
           <Degrees />
