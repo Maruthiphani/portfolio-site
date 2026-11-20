@@ -25,6 +25,8 @@ export interface Certification {
   issuer: string;
   date: string;
   logo: string;
+  description?: string;
+  credentialUrl?: string;
 }
 
 export interface Degree {

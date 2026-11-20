@@ -23,12 +23,9 @@ function App() {
 
   return (
     <PortfolioProvider>
-      <div className="relative min-h-screen bg-zinc-950 text-zinc-100 overflow-x-hidden">
-        {/* Site-wide ambient background */}
-        <div className="pointer-events-none fixed inset-0 -z-10">
-          <div className="absolute inset-0 bg-grid-zinc bg-grid-md opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
-          <div className="absolute inset-0 mesh-aurora opacity-80" />
-        </div>
+      <div className="relative min-h-screen bg-ivory text-charcoal overflow-x-hidden">
+        {/* Grain overlay — subtle film texture across the entire viewport */}
+        <div aria-hidden="true" className="fixed inset-0 -z-10 grain" />
 
         <Navbar onDownloadPDF={handleDownloadPDF} />
 
@@ -37,9 +34,9 @@ function App() {
           <About />
           <Experience />
           <Projects />
-          <Achievements />
-          <Certifications />
           <Degrees />
+          <Certifications />
+          <Achievements />
         </div>
 
         <Contact />

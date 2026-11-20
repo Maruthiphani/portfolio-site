@@ -41,18 +41,18 @@ interface GitHubRepo {
 }
 
 const languageColor: Record<string, string> = {
-  Python: 'text-yellow-300 border-yellow-500/30 bg-yellow-500/10',
-  JavaScript: 'text-amber-300 border-amber-500/30 bg-amber-500/10',
-  TypeScript: 'text-sky-300 border-sky-500/30 bg-sky-500/10',
-  Java: 'text-orange-300 border-orange-500/30 bg-orange-500/10',
-  'Jupyter Notebook': 'text-orange-200 border-orange-500/30 bg-orange-500/10',
-  HTML: 'text-rose-300 border-rose-500/30 bg-rose-500/10',
-  CSS: 'text-blue-300 border-blue-500/30 bg-blue-500/10',
-  Go: 'text-cyan-300 border-cyan-500/30 bg-cyan-500/10',
-  Rust: 'text-orange-300 border-orange-500/30 bg-orange-500/10',
-  'C++': 'text-pink-300 border-pink-500/30 bg-pink-500/10',
-  C: 'text-zinc-300 border-zinc-500/30 bg-zinc-500/10',
-  Shell: 'text-emerald-300 border-emerald-500/30 bg-emerald-500/10',
+  Python: 'text-yellow-700 border-yellow-500/30 bg-yellow-500/10',
+  JavaScript: 'text-amber-700 border-amber-500/30 bg-amber-500/10',
+  TypeScript: 'text-sky-700 border-sky-500/30 bg-sky-500/10',
+  Java: 'text-orange-700 border-orange-500/30 bg-orange-500/10',
+  'Jupyter Notebook': 'text-orange-800 border-orange-500/30 bg-orange-500/10',
+  HTML: 'text-rose-700 border-rose-500/30 bg-rose-500/10',
+  CSS: 'text-blue-700 border-blue-500/30 bg-blue-500/10',
+  Go: 'text-cyan-700 border-cyan-500/30 bg-cyan-500/10',
+  Rust: 'text-orange-700 border-orange-500/30 bg-orange-500/10',
+  'C++': 'text-pink-700 border-pink-500/30 bg-pink-500/10',
+  C: 'text-stone-700 border-zinc-500/30 bg-zinc-500/10',
+  Shell: 'text-taupe-700 border-taupe-500/30 bg-taupe-500/10',
 };
 
 const formatDate = (iso: string) => {
@@ -83,11 +83,14 @@ const writeCache = (repos: GitHubRepo[]) => {
   }
 };
 
+const INITIAL_VISIBLE_REPOS = 6;
+
 const Projects: React.FC = () => {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const fetchRepos = useCallback(async (force: boolean, signal?: AbortSignal) => {
     const cached = readCache();
@@ -152,11 +155,13 @@ const Projects: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 03. projects'}</div>
+          <div className="section-number mb-5">03 / Projects</div>
           <div className="flex items-end justify-between gap-6 flex-wrap">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Code in the open</h2>
-              <p className="mt-3 text-zinc-400 max-w-2xl">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal leading-[1.05]">
+                Code in the <span className="serif-italic text-stone-700">open</span>
+              </h2>
+              <p className="mt-3 text-stone-600 max-w-2xl">
                 Live from my GitHub. Updates here automatically when I push new work.
               </p>
             </div>
@@ -166,16 +171,16 @@ const Projects: React.FC = () => {
                 disabled={refreshing}
                 aria-label="Refresh projects from GitHub"
                 title="Refresh from GitHub"
-                className="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-zinc-700 bg-zinc-900/60 text-sm text-zinc-300 hover:border-emerald-500/50 hover:text-white hover:bg-emerald-500/10 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-stone-300 bg-white/70 text-sm text-stone-700 hover:border-taupe-500/50 hover:text-charcoal hover:bg-taupe-500/10 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin text-emerald-400' : ''}`} />
+                <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin text-taupe-700' : ''}`} />
                 <span className="font-mono text-xs">{refreshing ? 'refreshing' : 'refresh'}</span>
               </button>
               <a
                 href={`https://github.com/${GITHUB_USERNAME}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-700 bg-zinc-900/60 text-sm text-zinc-200 hover:border-emerald-500/50 hover:text-white hover:bg-emerald-500/10 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-300 bg-white/70 text-sm text-stone-800 hover:border-taupe-500/50 hover:text-charcoal hover:bg-taupe-500/10 transition-colors"
               >
                 <Github className="w-4 h-4" />
                 @{GITHUB_USERNAME}
@@ -186,23 +191,23 @@ const Projects: React.FC = () => {
         </motion.div>
 
         {loading && (
-          <div className="flex items-center gap-3 text-zinc-400 font-mono text-sm">
-            <Loader2 className="w-4 h-4 animate-spin text-emerald-400" />
+          <div className="flex items-center gap-3 text-stone-600 font-mono text-sm">
+            <Loader2 className="w-4 h-4 animate-spin text-taupe-700" />
             fetching repositories…
           </div>
         )}
 
         {error && !loading && (
           <div className="glass rounded-2xl p-6 flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-rose-700 flex-shrink-0 mt-0.5" />
             <div>
-              <div className="text-sm font-medium text-white">Couldn't load repositories</div>
-              <div className="text-xs text-zinc-400 mt-1 font-mono">{error}</div>
+              <div className="text-sm font-medium text-charcoal">Couldn't load repositories</div>
+              <div className="text-xs text-stone-600 mt-1 font-mono">{error}</div>
               <a
                 href={`https://github.com/${GITHUB_USERNAME}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-emerald-300 hover:text-emerald-200 mt-3"
+                className="inline-flex items-center gap-1.5 text-xs text-taupe-700 hover:text-taupe-800 mt-3"
               >
                 View on GitHub <ExternalLink className="w-3 h-3" />
               </a>
@@ -211,7 +216,7 @@ const Projects: React.FC = () => {
         )}
 
         {!loading && !error && repos.length === 0 && featuredProjects.length === 0 && (
-          <div className="glass rounded-2xl p-6 text-sm text-zinc-400">No public repositories yet.</div>
+          <div className="glass rounded-2xl p-6 text-sm text-stone-600">No public repositories yet.</div>
         )}
 
         {(featuredProjects.length > 0 || (!loading && !error && repos.length > 0)) && (
@@ -234,17 +239,17 @@ const Projects: React.FC = () => {
                 >
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="flex items-center gap-2 min-w-0">
-                      <Lock className="w-4 h-4 text-violet-300 flex-shrink-0" />
-                      <h3 className="text-base font-semibold text-white truncate group-hover:text-violet-200 transition-colors">
+                      <Lock className="w-4 h-4 text-violet-700 flex-shrink-0" />
+                      <h3 className="text-base font-semibold text-charcoal truncate group-hover:text-violet-800 transition-colors">
                         {p.name}
                       </h3>
                     </div>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-violet-300 bg-violet-500/10 border border-violet-500/30 px-2 py-0.5 rounded-full flex-shrink-0">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-violet-700 bg-violet-500/10 border border-violet-500/30 px-2 py-0.5 rounded-full flex-shrink-0">
                       private
                     </span>
                   </div>
 
-                  <p className="text-sm text-zinc-400 leading-relaxed line-clamp-3 min-h-[3.75rem]">
+                  <p className="text-sm text-stone-600 leading-relaxed line-clamp-3 min-h-[3.75rem]">
                     {p.description}
                   </p>
 
@@ -252,7 +257,7 @@ const Projects: React.FC = () => {
                     {p.tech.slice(0, 6).map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 rounded-md border border-zinc-800 bg-zinc-900/80 text-[10px] text-zinc-400 font-mono"
+                        className="px-2 py-0.5 rounded-md border border-stone-200 bg-white/80 text-[10px] text-stone-600 font-mono"
                       >
                         {t}
                       </span>
@@ -261,15 +266,15 @@ const Projects: React.FC = () => {
 
                   <div className="mt-auto pt-4 flex items-center justify-between gap-2 text-xs">
                     {p.link ? (
-                      <span className="inline-flex items-center gap-1.5 text-violet-300 group-hover:text-violet-200 font-mono">
+                      <span className="inline-flex items-center gap-1.5 text-violet-700 group-hover:text-violet-800 font-mono">
                         <LinkIcon className="w-3 h-3" />
                         {p.link.label}
                       </span>
                     ) : (
-                      <span className="text-zinc-500 font-mono">Available on request</span>
+                      <span className="text-stone-500 font-mono">Available on request</span>
                     )}
                     {p.updated && (
-                      <span className="inline-flex items-center gap-1 text-zinc-500 font-mono">
+                      <span className="inline-flex items-center gap-1 text-stone-500 font-mono">
                         <Calendar className="w-3 h-3" />
                         {p.updated}
                       </span>
@@ -278,18 +283,18 @@ const Projects: React.FC = () => {
                 </Wrapper>
               );
             })}
-            {repos.map((repo, index) => {
+            {(showAll ? repos : repos.slice(0, INITIAL_VISIBLE_REPOS)).map((repo, index) => {
               const langClass =
                 repo.language && languageColor[repo.language]
                   ? languageColor[repo.language]
-                  : 'text-zinc-300 border-zinc-700 bg-zinc-800/60';
+                  : 'text-stone-700 border-stone-300 bg-stone-200/60';
               return (
                 <motion.a
                   key={repo.id}
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group glass rounded-2xl p-5 flex flex-col hover:border-emerald-500/40 transition-all"
+                  className="group glass rounded-2xl p-5 flex flex-col hover:border-taupe-500/40 transition-all"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -297,15 +302,15 @@ const Projects: React.FC = () => {
                 >
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="flex items-center gap-2 min-w-0">
-                      <Code2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                      <h3 className="text-base font-semibold text-white truncate group-hover:text-emerald-300 transition-colors">
+                      <Code2 className="w-4 h-4 text-taupe-700 flex-shrink-0" />
+                      <h3 className="text-base font-semibold text-charcoal truncate group-hover:text-taupe-700 transition-colors">
                         {repo.name}
                       </h3>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+                    <ExternalLink className="w-4 h-4 text-stone-500 group-hover:text-taupe-700 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
                   </div>
 
-                  <p className="text-sm text-zinc-400 leading-relaxed line-clamp-3 min-h-[3.75rem]">
+                  <p className="text-sm text-stone-600 leading-relaxed line-clamp-3 min-h-[3.75rem]">
                     {repo.description || 'No description provided.'}
                   </p>
 
@@ -314,7 +319,7 @@ const Projects: React.FC = () => {
                       {repo.topics.slice(0, 4).map((t) => (
                         <span
                           key={t}
-                          className="px-2 py-0.5 rounded-md border border-zinc-800 bg-zinc-900/80 text-[10px] text-zinc-400 font-mono"
+                          className="px-2 py-0.5 rounded-md border border-stone-200 bg-white/80 text-[10px] text-stone-600 font-mono"
                         >
                           {t}
                         </span>
@@ -323,7 +328,7 @@ const Projects: React.FC = () => {
                   )}
 
                   <div className="mt-auto pt-4 flex items-center justify-between gap-2 text-xs">
-                    <div className="flex items-center gap-3 text-zinc-400 font-mono">
+                    <div className="flex items-center gap-3 text-stone-600 font-mono">
                       {repo.language && (
                         <span className={`px-2 py-0.5 rounded-md border ${langClass}`}>{repo.language}</span>
                       )}
@@ -340,7 +345,7 @@ const Projects: React.FC = () => {
                         </span>
                       )}
                     </div>
-                    <span className="inline-flex items-center gap-1 text-zinc-500 font-mono">
+                    <span className="inline-flex items-center gap-1 text-stone-500 font-mono">
                       <Calendar className="w-3 h-3" />
                       {formatDate(repo.updated_at)}
                     </span>
@@ -348,6 +353,19 @@ const Projects: React.FC = () => {
                 </motion.a>
               );
             })}
+          </div>
+        )}
+
+        {!loading && !error && repos.length > INITIAL_VISIBLE_REPOS && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setShowAll((v) => !v)}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-stone-200 bg-white/70 text-sm text-stone-700 hover:border-taupe-500/40 hover:text-charcoal hover:bg-taupe-500/5 transition-colors duration-200 focus-ring"
+            >
+              <span className="font-mono text-xs">
+                {showAll ? 'show fewer' : `show all ${repos.length} repos`}
+              </span>
+            </button>
           </div>
         )}
       </div>

@@ -16,8 +16,9 @@ const Certifications: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="font-mono text-xs text-emerald-400 mb-2 tracking-wider">{'// 05. certifications'}</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Certifications</h2>
+          <div className="section-number mb-5">05 / Certifications</div>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal leading-[1.05] mb-6">Certifications</h2>
+          <div className="hairline" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -31,7 +32,7 @@ const Certifications: React.FC = () => {
               transition={{ duration: 0.4, delay: index * 0.08 }}
             >
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 grid place-items-center">
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden border border-stone-200 bg-stone-100 grid place-items-center">
                   <img
                     src={certification.logo}
                     alt={certification.name}
@@ -40,26 +41,26 @@ const Certifications: React.FC = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5 mb-1">
-                    <BadgeCheck className="w-3.5 h-3.5 text-violet-300" />
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-violet-300">verified</span>
+                    <BadgeCheck className="w-3.5 h-3.5 text-violet-700" />
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-violet-700">verified</span>
                   </div>
                   {certification.credentialUrl ? (
                     <a
                       href={certification.credentialUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="block text-sm font-semibold text-white leading-snug mb-1.5 hover:text-violet-300 transition-colors"
+                      className="block text-sm font-semibold text-charcoal leading-snug mb-1.5 hover:text-violet-700 transition-colors"
                     >
                       {certification.name}
                     </a>
                   ) : (
-                    <h3 className="text-sm font-semibold text-white leading-snug mb-1.5">{certification.name}</h3>
+                    <h3 className="text-sm font-semibold text-charcoal leading-snug mb-1.5">{certification.name}</h3>
                   )}
-                  <p className="text-xs text-zinc-400 leading-relaxed">{certification.issuer}</p>
+                  <p className="text-xs text-stone-600 leading-relaxed">{certification.issuer}</p>
                   {certification.description && (
-                    <p className="text-xs text-zinc-500 leading-relaxed mt-2">{certification.description}</p>
+                    <p className="text-xs text-stone-500 leading-relaxed mt-2">{certification.description}</p>
                   )}
-                  <div className="flex items-center gap-1.5 mt-2.5 text-xs text-zinc-500 font-mono">
+                  <div className="flex items-center gap-1.5 mt-2.5 text-xs text-stone-500 font-mono">
                     <Calendar className="w-3 h-3" />
                     <span>{certification.date}</span>
                   </div>
