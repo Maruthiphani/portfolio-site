@@ -147,6 +147,14 @@ const defaultPortfolioData: PortfolioData = {
         logo: "/certificates/claude-badge.svg",
         description: "Advanced MCP beyond the basics: sampling (servers requesting LLM calls through the client), progress and logging notifications, roots for scoped filesystem access, JSON message types, and the STDIO and StreamableHTTP transports — including stateful vs stateless deployment trade-offs.",
         credentialUrl: "/certificates/claude-academy-badge-model-context-protocol-advanced-topics.pdf"
+      },
+      {
+        name: "Building Effective Human-Agent Teams",
+        issuer: "Anthropic — Claude Academy",
+        date: "11 2026",
+        logo: "/certificates/claude-badge.svg",
+        description: "Moving teams from single-player to multiplayer AI: how multiplayer agents differ from traditional chatbots, the four principles of healthy human-agent teams (clear roles, a written north star, gradual release, and right-sized information access), and organizational readiness for agent-native work.",
+        credentialUrl: "/certificates/claude-academy-badge-building-effective-human-agent-teams.pdf"
       }
       // Add more certifications as needed
     ]
